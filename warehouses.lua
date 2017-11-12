@@ -46,7 +46,7 @@ Citizen.CreateThread(function()
 	 EnableInteriorProp(currentInterior, "coke_cut_04")
 	 EnableInteriorProp(currentInterior, "coke_cut_05")
 	 RefreshInterior(currentInterior)
---   press "left shift" to disable interior props	 
+--   press "left shift" then "e" to disable interior props	 
  if IsControlPressed(0, 21) then 
 	 DisableInteriorProp(currentInterior, "equipment_upgrade")
 	 DisableInteriorProp(currentInterior, "coke_press_basic")
