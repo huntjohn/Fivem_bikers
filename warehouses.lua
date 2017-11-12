@@ -18,6 +18,9 @@ Citizen.CreateThread function loadWeed()
 	 EnableInteriorProp(currentInterior, "weed_growthe_stage3")
 	 EnableInteriorProp(currentInterior, "weed_growthf_stage3")
 	 RefreshInterior(currentInterior)
+	if currentInterior == 247553 then 
+	 break			
+	end			
 ------------------------coke--------------------------------------
 	 EnableInteriorProp(currentInterior, "production_basic")
 	 EnableInteriorProp(currentInterior, "equipment_upgrade")
