@@ -1,35 +1,66 @@
-Citizen.CreateThread function loadWeed()
+Citizen.CreateThread(function()
    while true do
      playerID = PlayerId()
 	 currentInterior = GetInteriorFromEntity(GetPlayerPed(playerID))
         Citizen.Wait(0)
-	if currentInterior ~= 0 then
+	if currentInterior ~= 0 then 	  
+  local position = 'current interiorID '..tostring(currentInterior)
+  local offset = {x = 0.290, y = 0.850}
+  local rgb = {r = 255, g = 0, b = 0}
+  local alpha = 255
+  local scale = 1.0
+  local font = 0
+            SetTextColour(rgb.r, rgb.g, rgb.b, alpha)
+            SetTextFont(font)
+		    SetTextScale(scale, scale)
+			SetTextWrap(0.0, 1.0)
+			SetTextCentre(false)
+			SetTextDropshadow(2, 2, 0, 0, 0)
+			SetTextEdge(1, 0, 0, 0, 205)
+			SetTextEntry("STRING")
+			AddTextComponentString(position)			
+			DrawText(offset.x, offset.y)       
+	  	  		
+	
 --------------------------------weed--------------------------------
-	 EnableInteriorProp(currentInterior, "weed_upgrade_equip")
-	 EnableInteriorProp(currentInterior, "weed_drying")
-	 EnableInteriorProp(currentInterior, "weed_security_upgrade")
-	 EnableInteriorProp(currentInterior, "weed_production")
-	 EnableInteriorProp(currentInterior, "weed_set_up")
-	 EnableInteriorProp(currentInterior, "weed_chairs")
-	 EnableInteriorProp(currentInterior, "weed_growtha_stage3")
-	 EnableInteriorProp(currentInterior, "weed_growthb_stage3")
-	 EnableInteriorProp(currentInterior, "weed_growthc_stage3")
-	 EnableInteriorProp(currentInterior, "weed_growthd_stage3")
-	 EnableInteriorProp(currentInterior, "weed_growthe_stage3")
-	 EnableInteriorProp(currentInterior, "weed_growthf_stage3")
-	 RefreshInterior(currentInterior)
+--  press "e" to enable interior props
+ if IsControlJustPressed(2, 38) then
+	 --EnableInteriorProp(currentInterior, "weed_upgrade_equip")
+	 --EnableInteriorProp(currentInterior, "weed_drying")
+	 --EnableInteriorProp(currentInterior, "weed_security_upgrade")
+	 --EnableInteriorProp(currentInterior, "weed_production")
+	 --EnableInteriorProp(currentInterior, "weed_set_up")
+	 --EnableInteriorProp(currentInterior, "weed_chairs")
+	 --EnableInteriorProp(currentInterior, "weed_growtha_stage3")
+	 --EnableInteriorProp(currentInterior, "weed_growthb_stage3")
+	 --EnableInteriorProp(currentInterior, "weed_growthc_stage3")
+	 --EnableInteriorProp(currentInterior, "weed_growthd_stage3")
+	 --EnableInteriorProp(currentInterior, "weed_growthe_stage3")
+	 --EnableInteriorProp(currentInterior, "weed_growthf_stage3")
+	 --RefreshInterior(currentInterior)
 ------------------------coke--------------------------------------
-	 EnableInteriorProp(currentInterior, "production_basic")
+	 --EnableInteriorProp(currentInterior, "production_basic")
 	 EnableInteriorProp(currentInterior, "equipment_upgrade")
-	 EnableInteriorProp(currentInterior, "coke_press_basic")
+	 --EnableInteriorProp(currentInterior, "coke_press_basic")
 	 EnableInteriorProp(currentInterior, "coke_press_upgrade")
 	 EnableInteriorProp(currentInterior, "coke_cut_04")
 	 EnableInteriorProp(currentInterior, "coke_cut_05")
 	 RefreshInterior(currentInterior)
-	
+--   press "left shift" to disable interior props	 
+ if IsControlPressed(0, 21) then 
+	 DisableInteriorProp(currentInterior, "equipment_upgrade")
+	 DisableInteriorProp(currentInterior, "coke_press_basic")
+	 DisableInteriorProp(currentInterior, "coke_press_upgrade")
+	 DisableInteriorProp(currentInterior, "coke_cut_04")
+	 DisableInteriorProp(currentInterior, "coke_cut_05")
+	 RefreshInterior(currentInterior)
+ end
+ end
 	end
    end
-
+end)  
+   
+--[[
 		function loadcoke()
 		while true do
         Citizen.Wait(0)
@@ -134,3 +165,4 @@ Citizen.CreateThread function loadWeed()
 				
 		end
 end
+--]]
